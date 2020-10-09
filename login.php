@@ -1,4 +1,6 @@
 <?php
+
+
 /* 
 【機能】
 	　ユーザ名とパスワードを元に認証を行う。認証についてはソースコードに
@@ -14,25 +16,44 @@
 //⑥セッションを開始する
 
 //①名前とパスワードを入れる変数を初期化する
+
+// function test_input($data)
+// {
+//     $data = trim($data);
+//     $data = stripslashes($data);
+//     $data = htmlspecialchars($data);
+//     return $data;
+// }
 $email='';
 $password='';
-/*
- * ②ログインボタンが押されたかを判定する。
- * 押されていた場合はif文の中の処理を行う
- */
-if (isset($_POST['decision'])&& $_POST['decision']==1) {
+$error='';
+$alert='';
+
+
+// /*
+//  * ②ログインボタンが押されたかを判定する。
+//  * 
+//  * 押されていた場合はif文の中の処理を行う
+//  */
+if (/* ②の処理を書く */ isset($_POST['decision'])&& $_POST['decision']==1) {
 	/*
 	 * ③名前とパスワードが両方とも入力されているかを判定する。
 	 * 入力されていた場合はif文の中の処理を行う。
 	 */
-	$name=$_POST['name'];
-    $password=$_POST['pass'];
-// 	if (/* ③の処理を書く */) {
-// 	// 	//④名前とパスワードにPOSTで送られてきた名前とパスワードを設定する
-// 	} else {
-// 	// 	//⑤名前かパスワードが入力されていない場合は、「名前かパスワードが未入力です」という文言をメッセージを入れる変数に設定する
-
-// }
+	$email=$_POST['name'];
+	$password=$_POST['pass'];
+	if (!empty($name) && !empty($password)) {
+        if($name == 'yse' && $password == '2019'){    
+            $_SESSION["name"] = $name;
+            $_SESSION["login"] = true;
+        }else{
+            $error = "Username or Password is wrong";
+        }
+        // $_name = test_input($name);
+        // $_password = test_input($password);
+    } else {
+        $error = "Input name please";
+    }
 }
 
 //⑦名前が入力されているか判定する。入力されていた場合はif文の中に入る
@@ -65,10 +86,10 @@ if (isset($_POST['decision'])&& $_POST['decision']==1) {
 		<h1>ログイン</h1>
 		<?php
 		//⑮エラーメッセージの変数に入っている値を表示する
-		// echo "<div id='error'>", /* ⑮の変数を書く */, "</div>";
+		//echo "<div id='error'>", /* ⑮の変数を書く */, "</div>";
 		
 		//⑯メッセージの変数に入っている値を表示する
-		// echo "<div id='msg'>", /* ⑯の変数を書く */, "</div>";
+		//echo "<div id='msg'>", /* ⑯の変数を書く */, "</div>";
 		?>
 		<form action="login.php" method="post" id="log">
 			<p>
