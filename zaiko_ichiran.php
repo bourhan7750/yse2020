@@ -14,7 +14,11 @@
 
 //①セッションを開始する
 
+
+
 session_start();
+session_regenerate_id(True);
+
 
 //②SESSIONの「login」フラグがfalseか判定する。「login」フラグがfalseの場合はif文の中に入る。
 // if (/* ②の処理を書く */){
@@ -32,12 +36,13 @@ $password='2020zaiko';
 $dsn = "mysql:dbname={$db_name};host={$host}";
 try {
 	$pdo = new PDO($dsn, $user_name, $password);    
-	$sql='SELECT * FROM books;';
-	$query=$pdo->query($sql);
+	
 } catch (PDOException $e) {   
     exit;
 }
 
+$sql='SELECT * FROM books;';
+$query=$pdo->query($sql);
 
 //⑦書籍テーブルから書籍情報を取得するSQLを実行する。また実行結果を変数に保存する
 
