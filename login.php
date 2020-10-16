@@ -24,37 +24,51 @@
 //     $data = htmlspecialchars($data);
 //     return $data;
 // }
-$email='';
-$password='';
+$_email='';
+$_password='';
 $error='';
 $alert='';
 
 
-// /*
-//  * ②ログインボタンが押されたかを判定する。
-//  * 
-//  * 押されていた場合はif文の中の処理を行う
-//  */
+/*
+ * ②ログインボタンが押されたかを判定する。
+ * 
+ * 押されていた場合はif文の中の処理を行う
+ */
 if (/* ②の処理を書く */ isset($_POST['decision'])&& $_POST['decision']==1) {
 	/*
 	 * ③名前とパスワードが両方とも入力されているかを判定する。
 	 * 入力されていた場合はif文の中の処理を行う。
+	 * ③名前とパスワードが両方とも入力されているかを判定する。
+* 入力されていた場合はif文の中の処理を行う。
+
+// // //④名前とパスワードにPOSTで送られてきた名前とパスワードを設定する
+// } else {
+// // //⑤名前かパスワードが入力されていない場合は、「名前かパスワードが未入力です」という文言をメッセージを入れる変数に設定する
 	 */
-	$email=$_POST['name'];
-	$password=$_POST['pass'];
-	if (!empty($name) && !empty($password)) {
-        if($name == 'yse' && $password == '2019'){    
-            $_SESSION["name"] = $name;
-            $_SESSION["login"] = true;
-        }else{
-            $error = "Username or Password is wrong";
-        }
-        // $_name = test_input($name);
-        // $_password = test_input($password);
-    } else {
-        $error = "Input name please";
-    }
+	
+	
+	if(!empty($_POST['name'])&&!empty($_POST['pass'])){
+		$_email=$_POST['name'];
+		$_password=$_POST['pass'];
+	}else{
+		$error = "名前かパスワードが未入力です";
+	}
 }
+// 	if (!empty($name) && !empty($password)) {
+
+//         // if($name === 'yse' && $password === '2019'){    
+//         //     $_SESSION["name"] = $name;
+//         //     $_SESSION["login"] = true;
+//         // }else{
+//         //     $error = "ユーザー名かパスワードが間違っています";
+//         // }
+//         // $_email = test_input($name);
+//         // $_password = test_input($password);
+//     } else {
+//         $error = "名前とパスワードを入力してください";
+//     }
+// }
 
 //⑦名前が入力されているか判定する。入力されていた場合はif文の中に入る
 // if (/* ⑦の処理を書く */) {
