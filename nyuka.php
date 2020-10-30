@@ -27,7 +27,7 @@ if (/* ①.の処理を行う */session_status() == PHP_SESSION_NONE)  {
 // 	header('location:login.php');
 // }
 
-//⑥データベースへ接続し、接続情報を変数に保存する
+//⑥データベースへ接続し、接続情報を変数に保存する//
 
 $db_name="zaiko2020_yse";
 $host='localhost';

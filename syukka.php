@@ -43,7 +43,7 @@ try {
 
 // ⑧POSTの「books」の値が空か判定する。空の場合はif文の中に入る。
 if(/* ⑧の処理を行う */empty($_POST['books'])){
-	//⑨SESSIONの「success」に「出荷する商品が選択されていません」と設定する。
+	//⑨SESSIONの「success」に「出荷する商品が選択されていません」と設定する。//
 	$_SESSION['success']="出荷する商品が選択されていません";
 	//⑩在庫一覧画面へ遷移する。
 	header('location:zaiko_ichiran.php');

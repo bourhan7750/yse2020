@@ -18,13 +18,7 @@ session_start();
 
 //①名前とパスワードを入れる変数を初期化する
 
-// function test_input($data)
-// {
-//     $data = trim($data);
-//     $data = stripslashes($data);
-//     $data = htmlspecialchars($data);
-//     return $data;
-// }
+
 $_email='';
 $_password='';
 $error='';
@@ -40,15 +34,15 @@ if (/* ②の処理を書く */ isset($_POST['decision'])&& $_POST['decision']==
 	 //* 入力されていた場合はif文の中の処理を行う。
 	 //* ③名前とパスワードが両方とも入力されているかを判定する。
 // /* 入力されていた場合はif文の中の処理を行う。
-if(!empty($_POST['name'])&&!empty($_POST['pass'])){
-	$_email=$_POST['name'];
-	$_password=$_POST['pass'];
-     // // //④名前とパスワードにPOSTで送られてきた名前とパスワードを設定する
- } else {
-// // //⑤名前かパスワードが入力されていない場合は、「名前かパスワードが未入力です」という文言をメッセージを入れる変数に設定する
-	$error = "名前かパスワードが未入力です";
-	}
-}	
+	if(!empty($_POST['name'])&&!empty($_POST['pass'])){
+		$_email=$_POST['name'];
+		$_password=$_POST['pass'];
+		// // //④名前とパスワードにPOSTで送られてきた名前とパスワードを設定する
+	} else {
+	// // //⑤名前かパスワードが入力されていない場合は、「名前かパスワードが未入力です」という文言をメッセージを入れる変数に設定する
+		$error = "名前かパスワードが未入力です";
+		}
+	}	
 
 //⑦名前が入力されているか判定する。入力されていた場合はif文の中に入る
 if (/* ⑦の処理を書く */$_email) {

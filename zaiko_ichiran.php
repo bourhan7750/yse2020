@@ -20,7 +20,7 @@ session_start();
 session_regenerate_id(True);
 
 
-//②SESSIONの「login」フラグがfalseか判定する。「login」フラグがfalseの場合はif文の中に入る。
+//②SESSIONの「login」フラグがfalseか判定する。「login」フラグがfalseの場合はif文の中に入る。//
 // if (/* ②の処理を書く */!$_SESSION['login']){
 // 	//③SESSIONの「error2」に「ログインしてください」と設定する。
 // 	$_SESSION['error2']="ログインしてください";
