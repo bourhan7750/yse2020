@@ -21,9 +21,11 @@ session_regenerate_id(True);
 
 
 //②SESSIONの「login」フラグがfalseか判定する。「login」フラグがfalseの場合はif文の中に入る。
-// if (/* ②の処理を書く */){
+// if (/* ②の処理を書く */!$_SESSION['login']){
 // 	//③SESSIONの「error2」に「ログインしてください」と設定する。
+// 	$_SESSION['error2']="ログインしてください";
 // 	//④ログイン画面へ遷移する。
+// 	header('location:login.php');
 // }
 
 //⑤データベースへ接続し、接続情報を変数に保存する
@@ -33,7 +35,7 @@ $db_name="zaiko2020_yse";
 $host='localhost';
 $user_name='zaiko2020_yse';
 $password='2020zaiko';
-$dsn = "mysql:dbname={$db_name};host={$host}";
+$dsn = "mysql:dbname={$db_name};host={$host};charset=utf8";
 try {
 	$pdo = new PDO($dsn, $user_name, $password);    
 	
@@ -41,10 +43,9 @@ try {
     exit;
 }
 
+//⑦書籍テーブルから書籍情報を取得するSQLを実行する。また実行結果を変数に保存する
 $sql='SELECT * FROM books;';
 $query=$pdo->query($sql);
-
-//⑦書籍テーブルから書籍情報を取得するSQLを実行する。また実行結果を変数に保存する
 
 
 ?>
@@ -68,9 +69,10 @@ $query=$pdo->query($sql);
 				 * ⑧SESSIONの「success」にメッセージが設定されているかを判定する。
 				 * 設定されていた場合はif文の中に入る。
 				 */ 
-				// if(/* ⑧の処理を書く */){
-				// 	//⑨SESSIONの「success」の中身を表示する。
-				// }
+				if(/* ⑧の処理を書く */isset($_SESSION['success'])){
+					//⑨SESSIONの「success」の中身を表示する。
+					echo $_SESSION['success'];
+				}
 				?>
 			</div>
 			
