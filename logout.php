@@ -6,7 +6,7 @@
 //①セッションを開始する。
 session_start();
 // //②セッションを削除する。
-// session_destroy();
+session_destroy();
 // //③ログイン画面へ遷移する。
-// header('location:login.php');
+header('location:login.php');
 ?>

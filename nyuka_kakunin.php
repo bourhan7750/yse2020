@@ -64,6 +64,7 @@ $index=0;
 
 //⑪POSTの「books」から値を取得し、変数に設定する。	
 foreach(/* ⑪の処理を書く */$_POST['books'] as $book_id){
+	
 	// 	/*
 	
 	//  * ⑫POSTの「stock」について⑩の変数の値を使用して値を取り出す。
@@ -106,10 +107,12 @@ foreach(/* ⑪の処理を書く */$_POST['books'] as $book_id){
 if(/* ㉓の処理を書く */isset($_POST['add'])&& $_POST['add']=='ok'){
 	// ㉔書籍数をカウントするための変数を宣言し、値を0で初期化する。
 	$index=0;
+	
 	// ㉕POSTの「books」から値を取得し、変数に設定する。
 	foreach(/* ㉕の処理を書く */$_POST['books'] as $book_id){
 		//㉖「getByid」関数を呼び出し、変数に戻り値を入れる。その際引数に㉕の処理で取得した値と⑧のDBの接続情報を渡す。
 		$book=getByid($book_id,$pdo);
+		$stock=$_POST['stock'][$index];
 		//㉗ ㉖で取得した書籍の情報の「stock」と、㉔の変数を元にPOSTの「stock」から値を取り出し、足した値を変数に保存する。
 		$total_stock=$book['stock']+$stock;
 		//㉘「updateByid」関数を呼び出す。その際に引数に㉕の処理で取得した値と⑧のDBの接続情報と㉗で計算した値を渡す。
