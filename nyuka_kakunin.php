@@ -126,6 +126,10 @@ if(/* ㉓の処理を書く */isset($_POST['add'])&& $_POST['add']=='ok'){
 	// ㉛「header」関数を使用して在庫一覧画面へ遷移する。
 	header('location:zaiko_ichiran.php');
 }
+if(empty($_POST['books'])){	
+	$_SESSION['success']="入荷する商品が選択されていません";	
+	header('location:zaiko_ichiran.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
