@@ -37,7 +37,7 @@ function addBook($data, $con) {
                     '{$data['salesDate']}', '{$data['price']}', '{$data['stock']}');";
     $result = $con->query($sql);
     if (!$result) {
-        $_SESSION['error'] = '追加に失敗しました。';
+        $_SESSION['error'] = '追加にしました。';
     } else {
         $_SESSION['error'] = '';
     }
