@@ -81,9 +81,7 @@ $query=$pdo->query($sql);
 				<p id="ninsyou_ippan">
 					<?php
 						echo @$_SESSION["account_name"];
-						echo "yse";
 					?><br>
-					
 					<button type="button" id="logout" onclick="location.href='logout.php'">ログアウト</button>
 				</p>
 				<button type="submit" id="btn1" formmethod="POST" name="decision" value="3" formaction="nyuka.php">入荷</button>
