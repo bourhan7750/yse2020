@@ -45,7 +45,9 @@ try {
 
 //⑦書籍テーブルから書籍情報を取得するSQLを実行する。また実行結果を変数に保存する
 $sql='SELECT * FROM books;';
+// $sql="SELECT*FROM books WHERE is_delete=false";
 $query=$pdo->query($sql);
+if(!$query)exit($sql);
 
 
 ?>
@@ -88,6 +90,7 @@ $query=$pdo->query($sql);
 
 				<button type="submit" id="btn1" formmethod="POST" name="decision" value="4" formaction="syukka.php">出荷</button>
 				<a href="new_product.php" id="btn1">品追加</a>
+				<button type="submit" id="btn1" formmethod="POST" name="decision" value="4" formaction="delete.php">商品削除</button>
 			</div>
 			<!-- 中央表示 -->
 			<div id="center">
